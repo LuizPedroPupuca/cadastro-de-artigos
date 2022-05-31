@@ -2,6 +2,7 @@ package br.com.zup.edu.blog;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -17,7 +18,7 @@ public class Blog {
     private LocalDateTime dataCriacao = LocalDateTime.now();
 
     @OneToMany(mappedBy = "blog", cascade = {CascadeType.ALL})
-    private List<Artigo> artigos;
+    private List<Artigo> artigos = new ArrayList<>();
 
     public Blog(String nome) {
         this.nome = nome;
